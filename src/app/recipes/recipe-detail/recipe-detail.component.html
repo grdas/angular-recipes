@@ -1,22 +1,24 @@
 <div class="row">
-    <div class="col-12">
-        <img src="" alt="" class="img-responsive">
+    <div class="col-xl-12">
+        <img [src]="recipe.imagePath" 
+        alt="{{recipe.name}}" 
+        class="img-responsive"
+        style="max-height:300px;">
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
-        <h1>Recipe Name</h1>
+    <div class="col-xl-12">
+        <h1>{{recipe.name}}</h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
+    <div class="col-xl-12">
         <div class="dropdown">
             <button type="button"
                 class="btn btn-primary dropdown-toggle"
                 data-toggle="dropdown"
                 aria-expanded="false">
-                Manage Recipe
-                <!-- Manage Recipe <span class="caret"></span> -->
+                    Manage Recipe                
             </button>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">To Shopping List</a>
@@ -27,12 +29,12 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
-        Description
+    <div class="col-xl-12">
+        {{recipe.description}}
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
-        Ingredients
+    <div class="col-xl-12">
+      Ingredients
     </div>
 </div>
