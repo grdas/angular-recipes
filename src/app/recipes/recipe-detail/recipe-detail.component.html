@@ -13,16 +13,16 @@
 </div>
 <div class="row">
     <div class="col-xl-12">
-        <div class="dropdown">
+        <div class="btn-group">
             <button type="button"
                 class="btn btn-primary dropdown-toggle"
                 data-toggle="dropdown"
                 aria-expanded="false">
                     Manage Recipe                
-            </button>
+            </button>            
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">To Shopping List</a>
-                <a class="dropdown-item" href="#">Edit recipe</a>
+                <a class="dropdown-item" href="#" (click)="addToShoppingList(recipe.ingredients)">To Shopping List</a>
+                <a class="dropdown-item" [routerLink]="['/recipes', id, 'edit']">Edit recipe</a>
                 <a class="dropdown-item" href="#">Delete recipe</a>
             </div>
         </div>
@@ -35,6 +35,10 @@
 </div>
 <div class="row">
     <div class="col-xl-12">
-      Ingredients
-    </div>
+      <ul class="list-group">
+        <li class="list-group-item"
+            *ngFor="let ingredient of recipe.ingredients">
+            {{ingredient.name}} - {{ingredient.amount}}            
+        </li>
+      </ul>
 </div>

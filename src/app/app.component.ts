@@ -6,10 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectedFeature = 'recipes';
+  // selectedFeature = 'recipes';
 
-  onNavigateFeature(feature:string)
-  {
-    this.selectedFeature=feature;
-  }
+  // onNavigateFeature(feature:string)
+  // {
+  //   this.selectedFeature=feature;
+  // }
 }

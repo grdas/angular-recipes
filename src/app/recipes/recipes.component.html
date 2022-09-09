@@ -1,13 +1,14 @@
 <div class="row">
     <div class="col-xl-5">
-        <app-recipe-list (RecipeItemSelected)="selectedItem = $event"></app-recipe-list>
+        <app-recipe-list></app-recipe-list>
     </div>
     <div class="col-xl-5">
-        <app-recipe-detail 
+        <router-outlet></router-outlet>
+        <!-- <app-recipe-detail 
          *ngIf="selectedItem ; else infoText"
         [recipe]="selectedItem"></app-recipe-detail>
         <ng-template #infoText>
             Please select a recipe!
-        </ng-template>
+        </ng-template> -->
     </div>
 </div>

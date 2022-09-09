@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,22 +9,20 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Output() RecipeItemSelected = new EventEmitter<Recipe>();
 
-  recipes: Recipe[] = [
-    new Recipe('Tasty Chole',
-    'Chole is made up of chikpeas, it tases good with hot boiled rice',
-    'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/08/chana-masala-recipe-500x500.jpg' ),
-    new Recipe('Delicious Paneer Butter Masala',
-    'Paneer butter masala is an all time favourite north-indian recipe. It goes well with Naan and Roti',
-    'https://www.ruchiskitchen.com/wp-content/uploads/2020/12/Paneer-butter-masala-recipe-3-500x375.jpg' )
-  ];
-  constructor() { }
+  recipes: Recipe[];
+
+  constructor(private recipeService : RecipeService,
+      private router: Router,
+      private route: ActivatedRoute) {    
+   }
 
   ngOnInit(): void {
-  }
-  onNavigateRecipe(recipe: Recipe) {
-    this.RecipeItemSelected.emit(recipe);    
-  }
+    this.recipes = this.recipeService.getRecipes();    
+  }  
 
+  onNewRecipe()
+  {
+    this.router.navigate(['new'], {relativeTo: this.route});
+  }
 }
