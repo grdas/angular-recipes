@@ -34,8 +34,7 @@ export class RecipeDetailComponent implements OnInit {
   {
     ingredients.forEach(ingredient => {
       this.shoppingListService.addIngredient(ingredient);
-    });
-    
+    });    
   }
 
 }
